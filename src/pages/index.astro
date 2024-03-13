@@ -1,0 +1,14 @@
+---
+import { db, Site } from 'astro:db';
+
+const site = await db.select().from(Site);
+---
+
+<h2>Site</h2>
+
+{
+  site.map(({ name, description }) => (
+      <p>{name}</p>
+      <p>{description}</p>
+  ))
+}
